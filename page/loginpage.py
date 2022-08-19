@@ -6,7 +6,6 @@ from resources import constants
 class LoginPage:
     driver = webdriver.Chrome(ChromeDriverManager().install())
 
-
-def load_login_page(self):
-    self.driver.set_page_load_timeout(10)
-    self.driver.get(constants.baseURL)
+    def load_login_page(self):
+        self.driver.set_page_load_timeout(10)
+        self.driver.get(constants.baseURL)
