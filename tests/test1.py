@@ -3,6 +3,7 @@ from operator import truth
 import pytest
 from page import loginpage
 from page import landingpage
+from page import usermanagementpage
 
 
 # Test should either start with test or end with test. Same applicable for python file
@@ -19,5 +20,6 @@ class TestRunner:
         loginpage.load_login_page()
         loginpage.login_with_valid_credentials()
         assert bool(landingpage.is_orange_hrm_logo_displaying()) == True
-        
+        landingpage.navigate_to_admin_page()
+        assert bool(usermanagementpage.is_admin_topic_displaying()) == True
         landingpage.quite_driver()
