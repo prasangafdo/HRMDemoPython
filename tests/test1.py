@@ -14,3 +14,10 @@ class TestRunner:
         loginpage.login_with_valid_credentials()
         assert bool(landingpage.is_orange_hrm_logo_displaying()) == True
         landingpage.quite_driver()
+
+    def test_admin_can_view_all_users(self):
+        loginpage.load_login_page()
+        loginpage.login_with_valid_credentials()
+        assert bool(landingpage.is_orange_hrm_logo_displaying()) == True
+        
+        landingpage.quite_driver()
