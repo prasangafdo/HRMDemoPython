@@ -22,4 +22,5 @@ class TestRunner:
         assert bool(landingpage.is_orange_hrm_logo_displaying()) == True
         landingpage.navigate_to_admin_page()
         assert bool(usermanagementpage.is_admin_topic_displaying()) == True
+        assert bool(usermanagementpage.are_column_headers_displaying()) == True
         landingpage.quite_driver()
