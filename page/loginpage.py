@@ -17,6 +17,7 @@ btn_login = "//button[normalize-space()='Login']"
 def load_login_page():
     driver.set_page_load_timeout(10)
     driver.get(constants.baseURL)
+    driver.maximize_window()
 
 
 def login_with_valid_credentials():
