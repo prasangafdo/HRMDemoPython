@@ -11,6 +11,7 @@ btn_admin = "//li[@class='oxd-main-menu-item-wrapper']/a[contains(@href,'viewAdm
 
 
 def is_orange_hrm_logo_displaying():
+
     return loginpage.driver.find_element(By.XPATH, img_banner).is_displayed()
 
 
