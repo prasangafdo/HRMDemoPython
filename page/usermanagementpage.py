@@ -6,7 +6,7 @@ from page import loginpage
 
 lbl_admin_topic = "//span[@class='oxd-topbar-header-breadcrumb']"
 lbl_table_body = "//div[@class='oxd-table-body']"
-
+btn_add_system_user = "//button[normalize-space()='Add']"
 driver = loginpage.driver
 
 
@@ -20,4 +20,7 @@ def are_column_headers_displaying():
     WebDriverWait(driver, 10).until(
         expected_conditions.visibility_of_element_located((By.XPATH, lbl_table_body)))
     return len(driver.find_element(By.XPATH, lbl_table_body).text) > 0
-    # pass  # Will work on this later after fixing the navigation
+
+
+def open_add_system_user_page():
+    driver.find_element(By.XPATH, btn_add_system_user).click()
