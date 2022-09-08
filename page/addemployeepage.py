@@ -9,11 +9,14 @@ from page import loginpage
 driver = loginpage.driver
 lbl_add_user_topic = "//h6[normalize-space()='Add User']"
 drp_dwn_user_role = "//div[normalize-space()='User Role']//ancestor::div[@class='oxd-input-group " \
-                "oxd-input-field-bottom-space']//div[@class='oxd-select-wrapper'] "
+                    "oxd-input-field-bottom-space']//div[@class='oxd-select-wrapper'] "
 drp_dwn_admin = "//div[@role='listbox']//div[normalize-space()='Admin']"
 btn_save = "//button[normalize-space()='Save']"
 txt_employee_name = "//input[@placeholder='Type for hints...']"
 drp_dwn_employee_name = "//div[contains(@class,'oxd-autocomplete-dropdown')]"
+drp_dwn_status = "//div[normalize-space()='Status']//ancestor::div[@class='oxd-input-group " \
+                 "oxd-input-field-bottom-space']//div[@class='oxd-select-wrapper'] "
+drp_dwn_status_enabled = "//div[@role='listbox']//div[normalize-space()='Enabled']"
 
 
 def add_a_new_admin_user():
@@ -22,7 +25,10 @@ def add_a_new_admin_user():
     driver.find_element(By.XPATH, txt_employee_name).send_keys("arjun")
     time.sleep(3)
     driver.find_element(By.XPATH, drp_dwn_employee_name).click()
+    driver.find_element(By.XPATH, drp_dwn_status).click()
+    driver.find_element(By.XPATH, drp_dwn_status_enabled).click()
     driver.find_element(By.XPATH, btn_save).click()
+    time.sleep(5)
 
 
 def is_add_user_topic_displaying():
