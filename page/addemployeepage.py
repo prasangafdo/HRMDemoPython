@@ -17,16 +17,24 @@ drp_dwn_employee_name = "//div[contains(@class,'oxd-autocomplete-dropdown')]"
 drp_dwn_status = "//div[normalize-space()='Status']//ancestor::div[@class='oxd-input-group " \
                  "oxd-input-field-bottom-space']//div[@class='oxd-select-wrapper'] "
 drp_dwn_status_enabled = "//div[@role='listbox']//div[normalize-space()='Enabled']"
+txt_username = "//div[normalize-space()='Username']//input"
+txt_password = "//div[normalize-space()='Password']//input"
+txt_confirm_password = "//div[normalize-space()='Confirm Password']//input"
 
 
 def add_a_new_admin_user():
     driver.find_element(By.XPATH, drp_dwn_user_role).click()
     driver.find_element(By.XPATH, drp_dwn_admin).click()
-    driver.find_element(By.XPATH, txt_employee_name).send_keys("arjun")
+    driver.find_element(By.XPATH, txt_employee_name).send_keys("a")
     time.sleep(3)
     driver.find_element(By.XPATH, drp_dwn_employee_name).click()
     driver.find_element(By.XPATH, drp_dwn_status).click()
     driver.find_element(By.XPATH, drp_dwn_status_enabled).click()
+    driver.find_element(By.XPATH, txt_username).send_keys("Adutomation_admin_user")
+    driver.find_element(By.XPATH, txt_password).send_keys("Test@123")
+    time.sleep(1)
+    driver.find_element(By.XPATH, txt_confirm_password).send_keys("Test@123")
+    time.sleep(2)
     driver.find_element(By.XPATH, btn_save).click()
     time.sleep(5)
 
