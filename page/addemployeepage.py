@@ -43,4 +43,8 @@ def is_add_user_topic_displaying():
     WebDriverWait(driver, 10).until(
         expected_conditions.visibility_of_element_located((By.XPATH, lbl_add_user_topic)))
     return bool(driver.find_element(By.XPATH, lbl_add_user_topic).is_displayed())
+
+
+def is_save_success_message_displaying():
+    pass
 # //div[@class='oxd-select-wrapper']
