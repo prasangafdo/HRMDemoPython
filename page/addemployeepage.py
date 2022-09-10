@@ -20,6 +20,7 @@ drp_dwn_status_enabled = "//div[@role='listbox']//div[normalize-space()='Enabled
 txt_username = "//div[normalize-space()='Username']//input"
 txt_password = "//div[normalize-space()='Password']//input"
 txt_confirm_password = "//div[normalize-space()='Confirm Password']//input"
+lbl_save_success_toast = "//div[@id='oxd-toaster_1']"
 
 
 def add_a_new_admin_user():
@@ -30,7 +31,7 @@ def add_a_new_admin_user():
     driver.find_element(By.XPATH, drp_dwn_employee_name).click()
     driver.find_element(By.XPATH, drp_dwn_status).click()
     driver.find_element(By.XPATH, drp_dwn_status_enabled).click()
-    driver.find_element(By.XPATH, txt_username).send_keys("Adutomation_admin_user")
+    driver.find_element(By.XPATH, txt_username).send_keys("Adutomation_admin_user_002")
     driver.find_element(By.XPATH, txt_password).send_keys("Test@123")
     time.sleep(1)
     driver.find_element(By.XPATH, txt_confirm_password).send_keys("Test@123")
@@ -46,5 +47,7 @@ def is_add_user_topic_displaying():
 
 
 def is_save_success_message_displaying():
-    pass
-# //div[@class='oxd-select-wrapper']
+    WebDriverWait(driver, 10).until(
+        expected_conditions.visibility_of_element_located((By.XPATH, lbl_save_success_toast)))
+    return bool(driver.find_element(By.XPATH, lbl_save_success_toast).is_displayed())
+
