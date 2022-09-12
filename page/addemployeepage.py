@@ -11,6 +11,7 @@ lbl_add_user_topic = "//h6[normalize-space()='Add User']"
 drp_dwn_user_role = "//div[normalize-space()='User Role']//ancestor::div[@class='oxd-input-group " \
                     "oxd-input-field-bottom-space']//div[@class='oxd-select-wrapper'] "
 drp_dwn_admin = "//div[@role='listbox']//div[normalize-space()='Admin']"
+drp_dwn_ess = "//div[@role='listbox']//div[normalize-space()='ESS']"
 btn_save = "//button[normalize-space()='Save']"
 txt_employee_name = "//input[@placeholder='Type for hints...']"
 drp_dwn_employee_name = "//div[contains(@class,'oxd-autocomplete-dropdown')]"
@@ -31,7 +32,24 @@ def add_a_new_admin_user():
     driver.find_element(By.XPATH, drp_dwn_employee_name).click()
     driver.find_element(By.XPATH, drp_dwn_status).click()
     driver.find_element(By.XPATH, drp_dwn_status_enabled).click()
-    driver.find_element(By.XPATH, txt_username).send_keys("Adutomation_admin_user_002")
+    driver.find_element(By.XPATH, txt_username).send_keys("Automation_admin_user_002")
+    driver.find_element(By.XPATH, txt_password).send_keys("Test@123")
+    time.sleep(1)
+    driver.find_element(By.XPATH, txt_confirm_password).send_keys("Test@123")
+    time.sleep(2)
+    driver.find_element(By.XPATH, btn_save).click()
+    time.sleep(5)
+
+
+def add_a_new_ess_user():
+    driver.find_element(By.XPATH, drp_dwn_user_role).click()
+    driver.find_element(By.XPATH, drp_dwn_ess).click()
+    driver.find_element(By.XPATH, txt_employee_name).send_keys("a")
+    time.sleep(3)
+    driver.find_element(By.XPATH, drp_dwn_employee_name).click()
+    driver.find_element(By.XPATH, drp_dwn_status).click()
+    driver.find_element(By.XPATH, drp_dwn_status_enabled).click()
+    driver.find_element(By.XPATH, txt_username).send_keys("Automation_ess_user_002")
     driver.find_element(By.XPATH, txt_password).send_keys("Test@123")
     time.sleep(1)
     driver.find_element(By.XPATH, txt_confirm_password).send_keys("Test@123")
