@@ -1,6 +1,6 @@
 import pytest
 from page import loginpage
-from page import landingpage , addemployeepage
+from page import landingpage, addemployeepage
 from page import usermanagementpage
 
 
@@ -56,7 +56,6 @@ class TestRunner:
         assert username in usermanagementpage.search_by_username(username)
         landingpage.quite_driver()
 
-
     def test_admin_can_delete_a_system_user(self):
         loginpage.load_login_page()
         loginpage.login_with_valid_credentials()
@@ -65,9 +64,6 @@ class TestRunner:
         assert bool(usermanagementpage.is_admin_topic_displaying()) == True
         username = "Fiona.Grace"
         assert username in usermanagementpage.search_by_username(username)
+        usermanagementpage.tick_checkbox_and_delete()
 
         landingpage.quite_driver()
-
-
-
-

@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
@@ -34,10 +36,12 @@ def open_add_system_user_page():
 def search_by_username(username):
     driver.find_element(By.XPATH, txt_username).send_keys(username)
     driver.find_element(By.XPATH, btn_search).click()
-    WebDriverWait(driver, 10).until(
+    WebDriverWait(driver, 100).until(
         expected_conditions.visibility_of_element_located((By.XPATH, lbl_table_rows)))
     return str(driver.find_element(By.XPATH, lbl_table_rows).text)
 
 
 def tick_checkbox_and_delete():
     driver.find_element(By.XPATH, chk_user).click()
+    driver.find_element(By.XPATH, btn_delete).click()
+    time.sleep(5)
