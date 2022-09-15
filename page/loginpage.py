@@ -22,7 +22,7 @@ def load_login_page():
 
 def login_with_valid_credentials():
     # time.sleep(5)
-    WebDriverWait(driver, 10).until(
+    WebDriverWait(driver, 1000).until(
         expected_conditions.visibility_of_element_located((By.NAME, lbl_username)))
     driver.find_element(By.NAME, lbl_username).send_keys(constants.username)
     driver.find_element(By.NAME, lbl_password).send_keys(constants.password)
