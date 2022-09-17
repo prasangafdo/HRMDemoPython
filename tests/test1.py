@@ -65,5 +65,5 @@ class TestRunner:
         username = "Fiona.Grace"
         assert username in usermanagementpage.search_by_username(username)
         usermanagementpage.tick_checkbox_and_delete()
-
+        assert addemployeepage.is_save_success_message_displaying() == True
         landingpage.quite_driver()
