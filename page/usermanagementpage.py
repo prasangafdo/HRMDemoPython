@@ -14,6 +14,7 @@ btn_search = "//button[normalize-space()='Search']"
 lbl_table_rows = "//div[@class='oxd-table-card']//div[contains(@class,'oxd-table-row')]"
 chk_user = "oxd-checkbox-input oxd-checkbox-input--active --label-right oxd-checkbox-input"
 btn_delete = "//button[normalize-space()='Delete Selected']"
+brn_yes_delete = "//button[normalize-space()='Yes, Delete']"
 driver = loginpage.driver
 
 
@@ -38,6 +39,7 @@ def search_by_username(username):
     driver.find_element(By.XPATH, btn_search).click()
     WebDriverWait(driver, 100).until(
         expected_conditions.visibility_of_element_located((By.XPATH, lbl_table_rows)))
+    time.sleep(3)
     return str(driver.find_element(By.XPATH, lbl_table_rows).text)
 
 
@@ -48,4 +50,7 @@ def tick_checkbox_and_delete():
     driver.execute_script(script)
     # driver.find_element(By.XPATH, chk_user).click()
     driver.find_element(By.XPATH, btn_delete).click()
+    WebDriverWait (driver, 100).until(
+        expected_conditions.element_to_be_clickable((By.XPATH, brn_yes_delete)))
+    driver.find_element(By.XPATH, brn_yes_delete).click()
     time.sleep(5)
