@@ -15,6 +15,7 @@ lbl_table_rows = "//div[@class='oxd-table-card']//div[contains(@class,'oxd-table
 chk_user = "oxd-checkbox-input oxd-checkbox-input--active --label-right oxd-checkbox-input"
 btn_delete = "//button[normalize-space()='Delete Selected']"
 brn_yes_delete = "//button[normalize-space()='Yes, Delete']"
+lbl_save_success_toast = "//div[@id='oxd-toaster_1']"
 driver = loginpage.driver
 
 
@@ -54,3 +55,9 @@ def tick_checkbox_and_delete():
         expected_conditions.element_to_be_clickable((By.XPATH, brn_yes_delete)))
     driver.find_element(By.XPATH, brn_yes_delete).click()
     time.sleep(5)
+
+
+def is_delete_success_message_displaying():
+    WebDriverWait(driver, 10).until(
+        expected_conditions.visibility_of_element_located((By.XPATH, lbl_save_success_toast)))
+    return bool(driver.find_element(By.XPATH, lbl_save_success_toast).is_displayed())
