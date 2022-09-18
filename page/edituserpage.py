@@ -1,0 +1,1 @@
+btn_edit_user = "//i[@class='oxd-icon bi-pencil-fill']/parent::button"
