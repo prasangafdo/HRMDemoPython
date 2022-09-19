@@ -1,6 +1,6 @@
 import pytest
 from page import loginpage
-from page import landingpage, addemployeepage
+from page import landingpage, addemployeepage, edituserpage
 from page import usermanagementpage
 
 
@@ -76,4 +76,6 @@ class TestRunner:
         assert bool(usermanagementpage.is_admin_topic_displaying()) == True
         username = "Fiona.Grace"
         assert username in usermanagementpage.search_by_username(username)
+
+        landingpage.quite_driver()
 
