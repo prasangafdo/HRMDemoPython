@@ -76,6 +76,9 @@ class TestRunner:
         assert bool(usermanagementpage.is_admin_topic_displaying()) == True
         username = "Fiona.Grace"
         assert username in usermanagementpage.search_by_username(username)
+        assert edituserpage.is_edit_icon_displaying() == True
+        edituserpage.navigate_to_edit_page()
+        assert edituserpage.is_edit_user_topic_displaying() == True
 
         landingpage.quite_driver()
 
