@@ -79,6 +79,6 @@ class TestRunner:
         assert edituserpage.is_edit_icon_displaying() == True
         edituserpage.navigate_to_edit_page()
         assert edituserpage.is_edit_user_topic_displaying() == True
-
+        edituserpage.edit_username_and_save()
         landingpage.quite_driver()
 

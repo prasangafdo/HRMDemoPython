@@ -8,6 +8,8 @@ driver = loginpage.driver
 
 btn_edit_user = "//i[@class='oxd-icon bi-pencil-fill']/parent::button"
 lbl_edit_user_topic = "//h6[normalize-space()='Add User']"
+txt_user_name = "//div[normalize-space()='User name']//parent::div//input"
+btn_save = "//button[normalize-space()='Save on computer']"
 
 
 def is_edit_icon_displaying():
@@ -24,3 +26,8 @@ def is_edit_user_topic_displaying():
 
 def navigate_to_edit_page():
     driver.find_element(By.XPATH, btn_edit_user).click()
+
+
+def edit_username_and_save():
+    driver.find_element(By.XPATH, txt_user_name).send_keys('Automation_update_01')
+    driver.find_element(By.XPATH, btn_save).click()

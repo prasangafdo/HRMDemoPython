@@ -36,6 +36,9 @@ def open_add_system_user_page():
 
 
 def search_by_username(username):
+    WebDriverWait(driver, 100).until(
+        expected_conditions.element_to_be_clickable((By.XPATH, txt_username)))
+    time.sleep(3)
     driver.find_element(By.XPATH, txt_username).send_keys(username)
     driver.find_element(By.XPATH, btn_search).click()
     WebDriverWait(driver, 100).until(
