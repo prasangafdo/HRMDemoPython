@@ -12,5 +12,6 @@ class TestJobs:
         loginpage.login_with_valid_credentials()
         assert bool(landingpage.is_orange_hrm_logo_displaying()) == True
         landingpage.navigate_to_admin_page()
-        assert bool(usermanagementpage.is_admin_topic_displaying()) == True
+        landingpage.navigate_to_job_titles()
+        # assert bool(usermanagementpage.is_admin_topic_displaying()) == True
         assert job_title.is_job_titles_topic_displaying() == True
