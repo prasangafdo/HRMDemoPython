@@ -15,3 +15,4 @@ class TestJobs:
         landingpage.navigate_to_job_titles()
         # assert bool(usermanagementpage.is_admin_topic_displaying()) == True
         assert job_title.is_job_titles_topic_displaying() == True
+        assert job_title.are_table_data_not_empty() == True
