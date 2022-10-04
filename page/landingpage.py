@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
@@ -25,6 +27,7 @@ def navigate_to_admin_page():
 
 
 def navigate_to_job_titles():
+    time.sleep(2)
     loginpage.driver.find_element(By.XPATH, btn_job).click()
     action = ActionChains(loginpage.driver)
     action.move_to_element(loginpage.driver.find_element(By.XPATH, lbl_job_titles)).click().perform()
