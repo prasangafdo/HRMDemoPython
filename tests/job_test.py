@@ -29,5 +29,5 @@ class TestJobs:
         assert job_title.are_table_data_not_empty() == True
         job_title.click_on_add_job_title_button()
         job_title.enter_job_title()
-
-        # landingpage.quite_driver()
+        assert job_title.is_save_success_message_displaying() == True
+        landingpage.quite_driver()

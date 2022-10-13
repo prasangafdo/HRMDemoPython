@@ -38,3 +38,9 @@ def enter_job_title():
         expected_conditions.visibility_of_element_located((By.XPATH, txt_job_title))).send_keys("Test_job1")
     WebDriverWait(driver, 10).until(
         expected_conditions.element_to_be_clickable((By.XPATH, btn_save))).click()
+
+
+def is_save_success_message_displaying():
+    WebDriverWait(driver, 10).until(
+        expected_conditions.visibility_of_element_located((By.XPATH, lbl_save_success_toast)))
+    return bool(driver.find_element(By.XPATH, lbl_save_success_toast).is_displayed())
