@@ -1,7 +1,7 @@
 import pytest
 from page import jobtitlespage as job_title
 from page import loginpage
-from page import landingpage, addemployeepage, edituserpage
+from page import landingpage, addemployeepage, edituserpage, editjobtitlespage
 from page import usermanagementpage
 
 
@@ -41,7 +41,7 @@ class TestJobs:
         # assert bool(usermanagementpage.is_admin_topic_displaying()) == True
         assert job_title.is_job_titles_topic_displaying() == True
         assert job_title.are_table_data_not_empty() == True
-        # job_title.click_on_add_job_title_button()
-        # job_title.enter_job_title()
+        job_title.click_on_edit_job_title_button()
+        assert bool(editjobtitlespage.is_job_titles_topic_displaying()) == True
         # assert job_title.is_save_success_message_displaying() == True
-        # landingpage.quite_driver()
+        landingpage.quite_driver()

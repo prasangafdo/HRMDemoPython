@@ -29,6 +29,7 @@ def navigate_to_admin_page():
 def navigate_to_job_titles():
     time.sleep(2)
     loginpage.driver.find_element(By.XPATH, btn_job).click()
+    time.sleep(2)
     action = ActionChains(loginpage.driver)
     action.move_to_element(loginpage.driver.find_element(By.XPATH, lbl_job_titles)).click().perform()
 
