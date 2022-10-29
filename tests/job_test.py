@@ -43,5 +43,6 @@ class TestJobs:
         assert job_title.are_table_data_not_empty() == True
         job_title.click_on_edit_job_title_button()
         assert bool(editjobtitlespage.is_job_titles_topic_displaying()) == True
-        # assert job_title.is_save_success_message_displaying() == True
+        editjobtitlespage.edit_job_title()
+        assert job_title.is_save_success_message_displaying() == True
         landingpage.quite_driver()
